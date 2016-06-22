@@ -1,0 +1,40 @@
+{
+  "name": "WTF ConvReverse",
+  "description": "It reverses any word on all conversation on whatsapp web",
+  "version": "0.1",
+  "manifest_version": 2,
+
+  "applications": {
+    "gecko": {
+      "id": "convreverse@wtf"
+    }
+  },
+
+  "browser_action": {
+        "default_title": "WTF ConvReverse",
+        "default_icon": "icon.png"
+    },
+
+  "icons": { "16": "icon.png",
+             "48": "immagine.png",
+            "128": "immagine.png" },
+
+  "permissions": [
+    "tabs",
+    "management"
+  ],
+
+  "background": {
+     "persistent": false,
+     "scripts": [ "background.js"]
+  },
+
+  "content_scripts":
+  [
+    {
+      "matches": ["https://web.whatsapp.com/*"],
+      "js":  ["jquery-1.11.3.js", "keysmap.js", "actions.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
